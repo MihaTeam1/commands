@@ -225,5 +225,13 @@ vim /etc/nginx/sites-enabled/default
     location / {
         include proxy_params;
         proxy_pass http://unix:/run/gunicorn.sock;
-        proxy_set_header
+        proxy_set_header X-Forwarded-Host $server_name;
+	proxy_set_header X-real-IP $remote_addr;
+	add_header P3P 'CP="ALL DSP COR PSAa PSDa OUR NOR ONL UNI COM NAV"';
+	add_header Access-Control-Allow-Origin *;   
+    }
+    
+    location /static/ {
+    	root /home/www/code/project/; # /home/www/code/project + /static/
+	autoindex off;
     }
