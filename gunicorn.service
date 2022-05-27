@@ -1,0 +1,14 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket redis.service
+After=network.target redis.service
+
+[Service]
+User=www
+Group=www-data
+WorkingDirectory=/home/www/code/project
+ExecStart=/home/www/code/project/bin/start_gunicorn.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target redis.service
