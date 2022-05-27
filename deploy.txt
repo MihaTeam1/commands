@@ -167,7 +167,8 @@ sudo supervisorctl update
 sudo service supervisor start
 
 #далее как и обещал systemd
-#[systemd]
+# [systemd]
+# Пример файла: https://github.com/MihaTeam1/commands/blob/2e293ba8ead38b573b5c330f92bd3b5322484307/gunicorn.service
 vim /etc/systemd/system/gunicorn.service
     [Unit]
     Description=gunicorn daemon
@@ -196,6 +197,7 @@ sudo sytemctl enable gunicorn.service
 sudo sytemctl restart gunicorn.service
     
 # Практически аналогичный файл для если необходим celery
+# Пример файла: https://github.com/MihaTeam1/commands/blob/2e293ba8ead38b573b5c330f92bd3b5322484307/celery.service
 vim /etc/systemd/system/celery.service
     [Unit]
     Description=celery daemon
