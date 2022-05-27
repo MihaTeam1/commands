@@ -1,0 +1,2 @@
+# Устанавливать только так
+pip install "uvicorn[standard]"
