@@ -1,0 +1,31 @@
+# [swapfile]
+# Проверить наличие свопа
+sudo swapon --show
+free -h
+
+# Проверить место на диске
+df -h
+
+# Создать swapfile
+# Множитель от оперативной памяти 0.25x 0.5x 0.75x 1x 1.25x 1.5x 2x
+sudo fallocate -l 1G /swapfile
+
+# Доступ к swapfile только руту
+sudo chmod 600 /swapfile
+
+# Активация
+sudo mkswap /swapfile
+
+# Резервное копирование
+sudo cp /etc/fstab /etc/fstab.bak
+
+# Автозапуск свопа
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+
+# Проверка процента перехода в swapfile
+cat /proc/sys/vm/swappiness
+
+# Если отличное от необходимого (обычно 10)
+sudo sysctl vm.swappiness=10
+sudo vim /etc/sysctl.conf
+	vm.swappiness=10
