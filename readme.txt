@@ -105,12 +105,6 @@ sudo vim /etc/systemd/system/gunicorn.socket
     [Install]
     WantedBy=sockets.target
     
-# Запускаем соккет и активируем симилинки указанные в [Install]
-sudo systemctl start gunicorn.socket
-sudo systemctl enable gunicorn.socket
-sudo systemctl restart gunicorn.socket
-
-
 # Создание gunicorn конфига
 # [gunicorn]
 # Пример файла: https://github.com/MihaTeam1/commands/blob/bb433f6bafecc7c10652ff789b16a236e30fd3be/gunicorn_config.py
@@ -132,7 +126,7 @@ vim /home/www/code/project/gunicorn_config.py
 vim /home/www/code/project/bin/start_gunicorn.sh
     #!/bin/bash
     source /home/www/code/project/env/bin/activate
-    exec gunicorn -c '/home/www/code/project/gunicorn_conf.py' project.wsgi
+    exec gunicorn -c '/home/www/code/project/gunicorn_config.py' project.wsgi
 
 # Делаем наш скрипт исполняемым
 chmod +x /home/www/code/project/bin/start_gunicorn.sh
@@ -208,6 +202,12 @@ vim /etc/systemd/system/gunicorn.service
     # Если необходим редис или любая другая программа
     # WantedBy=multi-user.target redis.service
     
+    
+# Запускаем соккет и активируем симилинки указанные в [Install]
+sudo systemctl start gunicorn.socket
+sudo systemctl enable gunicorn.socket
+sudo systemctl restart gunicorn.socket
+
 sudo sytemctl start gunicorn.service
 sudo sytemctl enable gunicorn.service
 sudo sytemctl restart gunicorn.service
