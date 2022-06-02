@@ -252,6 +252,10 @@ vim /etc/nginx/sites-enabled/default
     	root /home/www/code/project/; # /home/www/code/project + /static/
 	autoindex off;
     }
+    
+    location ~ /\. {
+    	deny all;
+    }
 
 sudo systemctl reload nginx
 sudo systemctl restart nginx
