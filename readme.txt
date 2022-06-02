@@ -32,7 +32,7 @@ sudo apt-get install libxml2-dev libxslt-dev python-dev python3 zsh tree redis-s
 
 # [additional installs]
 Если нужен редис
-sudo apt-get redis-server 
+sudo apt-get install redis-server 
 nginx или другой сервер на выбор
 sudo apt-get install nginx
 база данных на выбор
