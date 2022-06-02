@@ -27,16 +27,18 @@ sudo service ssh restart
 
 
 # [core installs]
-sudo apt-get install libxml2-dev libxslt-dev python-dev python3 zsh tree redis-server nginx libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-dev python3-lxml libxslt-dev libffi-dev python-dev gnumeric libsqlite3-dev libpq-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev libcurl4-openssl-dev supervisor python3-venv
+sudo apt-get install libxml2-dev libxslt-dev python-dev python3 zsh tree libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-dev python3-lxml libxslt-dev libffi-dev python-dev gnumeric libsqlite3-dev libpq-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev libcurl4-openssl-dev python3-venv
 
 
 # [additional installs]
-Если нужен редис
+# Если нужен supervisor
+sudo apt-get install supervisor
+# Если нужен редис
 sudo apt-get install redis-server 
-nginx или другой сервер на выбор
+# nginx или другой сервер на выбор
 sudo apt-get install nginx
-база данных на выбор
-sudo apt-get install potgresql
+# база данных на выбор
+sudo apt-get install postgresql
 
 
 # смена локалей на ru (в открывшемся окне убрать en_US.UTF-8 и поставить ru_RU.UTF-8 )\
