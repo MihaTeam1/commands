@@ -284,6 +284,7 @@ sudo chmod 600 /swapfile
 
 # Активация
 sudo mkswap /swapfile
+sudo swapon /swapfile
 
 # Резервное копирование
 sudo cp /etc/fstab /etc/fstab.bak
