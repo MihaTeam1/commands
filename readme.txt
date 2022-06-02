@@ -204,6 +204,7 @@ vim /etc/systemd/system/gunicorn.service
     
     
 # Запускаем соккет и активируем симилинки указанные в [Install]
+sudo systemctl daemon-reload
 sudo systemctl start gunicorn.socket
 sudo systemctl enable gunicorn.socket
 sudo systemctl restart gunicorn.socket
